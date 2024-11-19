@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BD Estudiantes - Registro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <script>
+        function validatePassword() {
+            const password = document.getElementById("reg_password").value;
+            const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/;
+
+            if (!passwordRegex.test(password)) {
+                alert("La contraseña debe tener al menos 8 caracteres, incluyendo al menos una letra mayúscula, un número y un símbolo.");
+                return false;
+            }
+            return true;
+        }
+
+        function checkPasswordStrength() {
+            const password = document.getElementById("reg_password").value;
+            const passwordMessage = document.getElementById("password-message");
+            const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/;
+
+            if (passwordRegex.test(password)) {
+                passwordMessage.style.color = "green";
+                passwordMessage.textContent = "La contraseña cumple con todos los requisitos.";
+            } else {
+                passwordMessage.style.color = "orange";
+                passwordMessage.textContent = "La contraseña debe tener al menos 8 caracteres, incluyendo al menos una letra mayúscula, un número y un símbolo.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header-login">
+        <div><h1>|||||||| BD ESTUDIANTES</h1></div>
+    </div>
+
+    <div class="conteiner-login-main">
+        <div class="logo-unso"><img src="https://www.unso.edu.ar/assets/images/logo-blanco.png" alt="logo-unso-san-isidro" width="300"></div>
+        <h2>Crea tu cuenta</h2>
+        <div class="form-login">
+            <form method="POST" action="register_user.php" onsubmit="return validatePassword()">
+                <input type="text" placeholder="Nombre de Usuario" aria-label="Nombre Apellido" id="reg_username" name="username" required>
+                <input type="email" placeholder="Correo electrónico" aria-label="Correo electrónico" id="reg_email" name="email" required>
+                <input type="password" placeholder="Contraseña" aria-label="Contraseña" id="reg_password" name="password" required oninput="checkPasswordStrength()">
+                <p id="password-message" style="font-size: 0.9em;"></p>
+                <label for="reg_perfil">Tipo de perfil:</label>
+                <select id="reg_perfil" name="perfil" required>
+                    <option value="Usuario">Usuario</option>
+                    <option value="Administrador">Administrador</option>
+                </select>
+                <button type="submit" class="btn-ingresar" name="register">Crear cuenta</button>
+            </form>
+            <a href="index.php" class="btn-external-link">iniciar sesión</a><br>
+            <a href="recovery.html" target="_blank" class="btn-external-link">¿Olvidaste tu contraseña?</a>
+        </div>
+    </div>
+</body>
+</html>

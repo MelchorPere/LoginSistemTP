@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BD Estudiantes - Ingreso</title>
+    <title>BD Estudiantes - Recuperar cuenta</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,15 +16,16 @@
 
     <div class="conteiner-login-main">
         <div class="logo-unso"><img src="https://www.unso.edu.ar/assets/images/logo-blanco.png" alt="logo-unso-san-isidro" width="300"></div>
-        <h2>Ingresa tu cuenta</h2>
+        <h2>Recuperar contraseña</h2>
         <div class="form-login">
-            <form method="POST" action="login_user.php">
-                <input type="email" placeholder="Correo electrónico" aria-label="Correo electrónico"  name="email" required>
-                <input type="password" placeholder="Contraseña" aria-label="Contraseña"  name="password" required>
-                <button type="submit" class="btn-ingresar" name="login">Ingresar</button>
+            <form action="#">
+                <input type="email" placeholder="Correo electrónico" aria-label="Correo electrónico" required>
+                <input type="password" placeholder="Nueva contraseña" aria-label="Nueva Contraseña" required>
+                <input type="password" placeholder="Confirmar nueva contraseña" aria-label="Confirm Contraseña" required>
+                <button type="submit" class="btn-ingresar">Recuperar</button>
             </form>
-            <a href="sign-up.html" class="btn-external-link">Regístrate</a><br>
-            <a href="recovery.html" target="_blank" class="btn-external-link">¿Olvidaste tu contraseña?</a>
+            <a href="index.php" class="btn-external-link">Iniciar sesión</a><br>
+            <a href="sign-up.html" class="btn-external-link">Registrarse</a>
         </div>
     </div>
 </body>
